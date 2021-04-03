@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateMerchantprdCategoryTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('merchantprd_category', function (Blueprint $table) {
+            $table->id();
+			// FK to merchant.id
+			$table->integer('merchant_id')->unsigned();
+			// FK to prd_category.id
+            $table->integer('category_id')->unsigned();
+            $table->softDeletes();
+            $table->timestamps();
+            $table->engine = "ARIA";
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('merchantprd_category');
+    }
+}
