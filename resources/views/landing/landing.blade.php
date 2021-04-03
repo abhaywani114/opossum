@@ -1765,7 +1765,7 @@
 							style="cursor:pointer;line-height:1.2;
 							margin-left:0;font-size:20px;
 							padding-top:0;text-align: left;"
-							onclick="calculate_fuel_price({{$product->price}})">
+							onclick="calculate_fuel_price({{($product->price ?? 0)}})">
 							{{$product->name}}
 						</div>
 						</div>
